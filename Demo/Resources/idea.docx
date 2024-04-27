@@ -1,0 +1,56 @@
+What i want???
+
+1-ORB:
+2-Mean reversen:
+
+Rules  
+
+
+
+
+
+
+
+
+
+
+AnswerFYERS API
+How to fetch weekly OHLC data from Fyers Data API ?
+Pushkar Talwalkar
+Pushkar Talwalkar
+Answered 11 months ago
+I tried this and it works:
+
+ 
+
+from fyers_api import accessToken
+
+from fyers_api import fyersModel
+
+import time
+
+import pandas as pd
+
+ data = {"symbol":symbol,"resolution":resolution,"date_format":date_format,"range_from":range_from,"range_to":range_to,"cont_flag":"1"}
+
+       try:
+
+           ss=fyers.history(data)['candles']
+
+       except:
+
+           print('fyers is not defined , lets define it')
+
+           fyers = fyres_login()#Use your login method
+
+        ss=fyers.history(data)['candles']
+
+       df = pd.DataFrame(data=ss,columns=['Date', 'Open','High','Close','Low','Volume'])
+
+       df['Date'] =[ time.strftime("%Y-%m-%d, %H:%M:%S",time.localtime(float(x))) for x in df['Date']]
+
+       df['Date'] = pd.to68_datetime(df['Date'])
+
+        fd = df.resample("W", on ='Date', closed='left', label='left').apply(ohlc_dict).dropna()
+
+        #fd is the weekly data frame

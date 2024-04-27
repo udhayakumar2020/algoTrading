@@ -1,0 +1,4 @@
+Name,totalEntries,risk,reward,buffer,Profit,Loss,PercentageProfit,PercentageLoss,Win,losses,probability
+NSE:NIFTY50-INDEX,0,0,0,0,0,0,0,0,0,0,=SUM(J3/(J3+K3)*100)
+Name,totalEntries,risk,reward,buffer,Profit,Loss,PercentageProfit,PercentageLoss,Win,losses,probability
+NSE:NIFTY50-INDEX,0,0,0,0,0,0,0,0,0,0,=SUM(J3/(J3+K3)*100)
